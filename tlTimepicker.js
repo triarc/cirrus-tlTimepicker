@@ -3,14 +3,16 @@ var Triarc;
     var Timepicker;
     (function (Timepicker) {
         var mod = angular.module("tlTimepicker", ["ui.bootstrap"]);
-        mod.directive("tlTimepickerFocus", function () {
+        mod.directive("tlTimepickerFocus", ["$timeout", function ($timeout) {
             return {
                 restrict: "A",
                 link: function (scope, element, attrs) {
-                    element.find("input").first().focus();
+                    $timeout(function () {
+                        element.find("input").first().focus();
+                    }, 200);
                 }
             };
-        });
+        }]);
         mod.directive("tlTimepickerNumeric", function () {
             return {
                 restrict: "A",
