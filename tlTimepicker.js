@@ -33,7 +33,7 @@ var Triarc;
                     if (ngModelCtrl) {
                         scope.$watch(function () {
                             return ngModelCtrl.$modelValue;
-                        }, function (newVal, oldVal) {
+                        }, function (newVal) {
                             newVal.setMilliseconds(0);
                             newVal.setSeconds(0);
                         });
