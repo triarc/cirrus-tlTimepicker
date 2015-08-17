@@ -18,7 +18,7 @@ var Triarc;
                 restrict: "A",
                 link: function (scope, element, attrs) {
                     var inputs = element.find("input:lt(2)");
-                    inputs.attr("pattern", "[0-9]*").attr("type", "number");
+                    inputs.attr("pattern", "[0-9]*").attr("type", "number").css("padding-right", "14px");
                 }
             };
         });
