@@ -9,7 +9,7 @@ var Triarc;
                 restrict: "A",
                 link: function (scope, element, attrs) {
                     $timeout(function () {
-                        element.find("input").first().focus();
+                        element.find("input").first().focus().select();
                     }, 200);
                 }
             };
