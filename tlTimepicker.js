@@ -22,6 +22,19 @@ var Triarc;
                 }
             };
         });
+        mod.directive("tlTimepickerPrune", function () {
+            return {
+                restrict: "A",
+                link: function (scope, element, attrs) {
+                    scope.$watch("ngModel", function (newVal, oldVal) {
+                        if (newVal.valueOf() !== oldVal.valueOf()) {
+                            newVal.setMilliseconds(0);
+                            newVal.setSeconds(0);
+                        }
+                    });
+                }
+            };
+        });
     })(Timepicker = Triarc.Timepicker || (Triarc.Timepicker = {}));
 })(Triarc || (Triarc = {}));
 
