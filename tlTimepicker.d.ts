@@ -1,2 +1,2 @@
-declare module Triarc.Timepicker {
+declare module Triarc.Web {
 }

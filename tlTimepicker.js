@@ -1,7 +1,7 @@
 var Triarc;
 (function (Triarc) {
-    var Timepicker;
-    (function (Timepicker) {
+    var Web;
+    (function (Web) {
         var mod = angular.module("tlTimepicker", ["ui.bootstrap"]);
         mod.directive("tlTimepickerFocus", ["$timeout", function ($timeout) {
             return {
@@ -41,6 +41,6 @@ var Triarc;
                 }
             };
         });
-    })(Timepicker = Triarc.Timepicker || (Triarc.Timepicker = {}));
+    })(Web = Triarc.Web || (Triarc.Web = {}));
 })(Triarc || (Triarc = {}));
 
