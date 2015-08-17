@@ -34,10 +34,8 @@ var Triarc;
                         scope.$watch(function () {
                             return ngModelCtrl.$modelValue;
                         }, function (newVal, oldVal) {
-                            if (oldVal !== undefined && newVal.valueOf() !== oldVal.valueOf()) {
-                                newVal.setMilliseconds(0);
-                                newVal.setSeconds(0);
-                            }
+                            newVal.setMilliseconds(0);
+                            newVal.setSeconds(0);
                         });
                     }
                 }
