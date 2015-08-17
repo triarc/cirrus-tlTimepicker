@@ -10,7 +10,7 @@ var Triarc;
                 link: function (scope, element, attrs) {
                     $timeout(function () {
                         element.find("input").first().focus().select();
-                    }, 200);
+                    }, 400);
                 }
             };
         }]);
