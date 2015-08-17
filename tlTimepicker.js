@@ -5,6 +5,7 @@ var Triarc;
         var mod = angular.module("tlTimepicker", ["ui.bootstrap"]);
         mod.directive("tlTimepickerFocus", ["$timeout", function ($timeout) {
             return {
+                require: ["timepicker"],
                 restrict: "A",
                 link: function (scope, element, attrs) {
                     $timeout(function () {
@@ -15,6 +16,7 @@ var Triarc;
         }]);
         mod.directive("tlTimepickerNumeric", function () {
             return {
+                require: ["timepicker"],
                 restrict: "A",
                 link: function (scope, element, attrs) {
                     var inputs = element.find("input:lt(2)");
@@ -25,13 +27,19 @@ var Triarc;
         mod.directive("tlTimepickerPrune", function () {
             return {
                 restrict: "A",
-                link: function (scope, element, attrs) {
-                    scope.$watch("ngModel", function (newVal, oldVal) {
-                        if (newVal.valueOf() !== oldVal.valueOf()) {
-                            newVal.setMilliseconds(0);
-                            newVal.setSeconds(0);
-                        }
-                    });
+                require: ["timepicker", "?^ngModel"],
+                link: function (scope, element, attrs, ctrls) {
+                    var ngModelCtrl = ctrls[1];
+                    if (ngModelCtrl) {
+                        scope.$watch(function () {
+                            return ngModelCtrl.$modelValue;
+                        }, function (newVal, oldVal) {
+                            if (oldVal !== undefined && newVal.valueOf() !== oldVal.valueOf()) {
+                                newVal.setMilliseconds(0);
+                                newVal.setSeconds(0);
+                            }
+                        });
+                    }
                 }
             };
         });
