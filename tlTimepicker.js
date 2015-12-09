@@ -4,16 +4,16 @@ var Triarc;
     (function (Web) {
         var mod = angular.module("tlTimepicker", ["ui.bootstrap"]);
         mod.directive("tlTimepickerFocus", ["$timeout", function ($timeout) {
-            return {
-                require: ["timepicker"],
-                restrict: "A",
-                link: function (scope, element, attrs) {
-                    $timeout(function () {
-                        element.find("input").first().focus().select();
-                    }, 200);
-                }
-            };
-        }]);
+                return {
+                    require: ["timepicker"],
+                    restrict: "A",
+                    link: function (scope, element, attrs) {
+                        $timeout(function () {
+                            element.find("input").first().focus().select();
+                        }, 200);
+                    }
+                };
+            }]);
         mod.directive("tlTimepickerNumeric", function () {
             return {
                 require: ["timepicker"],
